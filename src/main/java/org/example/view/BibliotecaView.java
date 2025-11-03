@@ -1,5 +1,9 @@
 package org.example.view;
 
+import org.example.model.Livro;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaView {
@@ -38,6 +42,19 @@ public class BibliotecaView {
 
         System.out.println("Digite o ano de publicação do livro:");
         int anoPublicacao = scNum.nextInt();
+    }
+
+    public static void listarLivros(){
+        System.out.println("===== Listar Livros =====");
+        List<Livro> livros = new ArrayList<>();
+        for (Livro livro : livros) {
+            System.out.println("ID: " + livro.getId());
+            System.out.println("Título: " + livro.getTitulo());
+            System.out.println("Autor: " + livro.getAutor());
+            System.out.println("Ano de Publicação: " + livro.getAnoPublicacao());
+            System.out.println("Disponível: " + livro.isDisponivel());
+            System.out.println("---------------------------");
+        }
     }
 
     public static void menuUsuarios(){
