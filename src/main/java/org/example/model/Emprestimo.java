@@ -1,13 +1,15 @@
 package org.example.model;
 
+import java.time.LocalDate;
+
 public class Emprestimo {
     private int id;
     private int usuarioId;
     private int livroId;
-    private String dataEmprestimo;
-    private String dataDevolucao;
+    private LocalDate dataEmprestimo;
+    private LocalDate dataDevolucao;
 
-    public Emprestimo(int id, int usuarioId, int livroId, String dataEmprestimo, String dataDevolucao) {
+    public Emprestimo(int id, int usuarioId, int livroId, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
         this.id = id;
         this.usuarioId = usuarioId;
         this.livroId = livroId;
@@ -15,7 +17,7 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Emprestimo(int usuarioId, int livroId, String dataEmprestimo, String dataDevolucao) {
+    public Emprestimo(int usuarioId, int livroId, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
         this.usuarioId = usuarioId;
         this.livroId = livroId;
         this.dataEmprestimo = dataEmprestimo;
@@ -46,19 +48,19 @@ public class Emprestimo {
         this.livroId = livroId;
     }
 
-    public String getDataEmprestimo() {
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(String dataEmprestimo) {
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public String getDataDevolucao() {
+    public LocalDate getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(String dataDevolucao) {
+    public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 }
