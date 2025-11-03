@@ -1,6 +1,7 @@
 package org.example.view;
 
 import org.example.model.Livro;
+import org.example.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +58,34 @@ public class BibliotecaView {
         }
     }
 
+//    ====================================================================================
+
     public static void menuUsuarios(){
         System.out.println("===== Gerenciar Usuários =====");
         System.out.println("1 - Cadastrar Usuário");
         System.out.println("2 - Listar Usuários");
         System.out.println("0 - Voltar ao Menu Principal");
+    }
+
+    public static void cadastrarUsuario(){
+        System.out.println("===== Cadastrar Usuário =====");
+
+        System.out.println("Digite o nome do usuário:");
+        String nomeUsuario = scStr.nextLine();
+
+        System.out.println("Digite o email do usuário:");
+        String emailUsuario = scStr.nextLine();
+    }
+
+    public static void listarUsuarios(){
+        System.out.println("===== Listar Usuários =====");
+        List<Usuario> usuarios = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            System.out.println("ID: " + usuario.getId());
+            System.out.println("Nome: " + usuario.getNome());
+            System.out.println("Email: " + usuario.getEmail());
+            System.out.println("---------------------------");
+        }
     }
 
     public static void menuEmprestimos(){
