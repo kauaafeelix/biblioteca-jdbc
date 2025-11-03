@@ -33,5 +33,12 @@ public class BibliotecaView {
         System.out.println("0 - Voltar ao Menu Principal");
     }
 
+    public static void menuEmprestimos(){
+        System.out.println("===== Gerenciar Empréstimos =====");
+        System.out.println("1 - Registrar Empréstimo");
+        System.out.println("2 - Registrar Devolução");
+        System.out.println("3 - Listar Empréstimos");
+        System.out.println("0 - Voltar ao Menu Principal");
+    }
 
 }
