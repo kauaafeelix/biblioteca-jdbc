@@ -26,5 +26,12 @@ public class BibliotecaView {
         System.out.println("0 - Voltar ao Menu Principal");
     }
 
+    public static void menuUsuarios(){
+        System.out.println("===== Gerenciar Usuários =====");
+        System.out.println("1 - Cadastrar Usuário");
+        System.out.println("2 - Listar Usuários");
+        System.out.println("0 - Voltar ao Menu Principal");
+    }
+
 
 }
