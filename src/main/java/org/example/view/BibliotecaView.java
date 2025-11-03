@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BibliotecaView {
 
     static Scanner scNum = new Scanner(System.in);
+    static Scanner scStr = new Scanner (System.in);
 
     public static void mostrarMenu(){
         System.out.println("===== Biblioteca =====");
@@ -24,6 +25,19 @@ public class BibliotecaView {
         System.out.println("1 - Cadastrar Livro");
         System.out.println("2 - Listar Livros");
         System.out.println("0 - Voltar ao Menu Principal");
+    }
+
+    public static void cadastrarLivro(){
+        System.out.println("===== Cadastrar Livro =====");
+
+        System.out.println("Digite o título do livro:");
+        String nomeLivro = scStr.nextLine();
+
+        System.out.println("Digite o autor do livro:");
+        String autorLivro = scStr.nextLine();
+
+        System.out.println("Digite o ano de publicação do livro:");
+        int anoPublicacao = scNum.nextInt();
     }
 
     public static void menuUsuarios(){
