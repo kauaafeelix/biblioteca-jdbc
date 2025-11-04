@@ -41,6 +41,7 @@ public class UsuarioRepository {
                 id, 
                 nome,
                 email
+                FROM usuarios
                 """;
 
         try(Connection conn = Conexao.conectar();
