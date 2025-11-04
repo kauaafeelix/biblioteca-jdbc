@@ -3,7 +3,6 @@ package org.example.infraestrutura.repository;
 import org.example.infraestrutura.Conexao;
 import org.example.model.Usuario;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
