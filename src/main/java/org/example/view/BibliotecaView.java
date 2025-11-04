@@ -25,11 +25,12 @@ public class BibliotecaView {
         return scNum.nextInt();
     }
 
-    public void menuLivros(){
+    public int menuLivros(){
         System.out.println("===== Gerenciar Livros =====");
         System.out.println("1 - Cadastrar Livro");
         System.out.println("2 - Listar Livros");
         System.out.println("0 - Voltar ao Menu Principal");
+        return capturarOpcao();
     }
 
     public void cadastrarLivro(){
