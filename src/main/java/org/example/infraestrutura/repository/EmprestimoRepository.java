@@ -37,14 +37,14 @@ public class EmprestimoRepository {
 
         String sql = """
                 SELECT
-                e.id,
-                l.nome AS nome_livro,
-                u.nome AS nome_usuario,
-                e.data_emprestimo,
-                e.data_devolucao
-                FROM emprestimos e
-                JOIN livros l ON e.id_livro = l.id
-                JOIN usuarios u ON e.id_usuario = u.id
+                  e.id,
+                  l.titulo AS nome_livro,
+                  u.nome AS nome_usuario,
+                  e.data_emprestimo,
+                  e.data_devolucao
+                  FROM emprestimos e
+                  JOIN livros l ON e.livro_id = l.id
+                  JOIN usuarios u ON e.usuario_id = u.id
                 """;
 
         List<Emprestimo>emprestimos = new ArrayList<>();
