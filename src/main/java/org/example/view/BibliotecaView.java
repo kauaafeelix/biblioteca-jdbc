@@ -52,7 +52,7 @@ public class BibliotecaView {
         return novoLivro;
     }
 
-    public void listarLivros(){
+    public List listarLivros(){
         System.out.println("===== Listar Livros =====");
         List<Livro> livros = new ArrayList<>();
         for (Livro livro : livros) {
@@ -63,6 +63,7 @@ public class BibliotecaView {
             System.out.println("Disponível: " + livro.isDisponivel());
             System.out.println("---------------------------");
         }
+        return livros;
     }
 
 //    ====================================================================================
@@ -89,7 +90,7 @@ public class BibliotecaView {
         return novoUsuario;
     }
 
-    public void listarUsuarios(){
+    public List listarUsuarios(){
         System.out.println("===== Listar Usuários =====");
         List<Usuario> usuarios = new ArrayList<>();
         for (Usuario usuario : usuarios) {
@@ -98,6 +99,7 @@ public class BibliotecaView {
             System.out.println("Email: " + usuario.getEmail());
             System.out.println("---------------------------");
         }
+        return usuarios;
     }
 
     public int menuEmprestimos(){
