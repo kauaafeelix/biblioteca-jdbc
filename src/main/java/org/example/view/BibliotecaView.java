@@ -12,12 +12,14 @@ public class BibliotecaView {
     static Scanner scNum = new Scanner(System.in);
     static Scanner scStr = new Scanner (System.in);
 
-    public void mostrarMenu(){
+    public int mostrarMenu(){
         System.out.println("===== Biblioteca =====");
-        System.out.println("1 - Gerenciar Livros");
-        System.out.println("2 - Gerenciar Usuários");
+        System.out.println("1 - Gerenciar Usuários");
+        System.out.println("2 - Gerenciar Livros");
         System.out.println("3 - Gerenciar Empréstimos");
         System.out.println("0 - Sair");
+        int opcao = capturarOpcao();
+        return opcao;
     }
 
     public int capturarOpcao(){
@@ -30,10 +32,11 @@ public class BibliotecaView {
         System.out.println("1 - Cadastrar Livro");
         System.out.println("2 - Listar Livros");
         System.out.println("0 - Voltar ao Menu Principal");
-        return capturarOpcao();
+        int opcao = capturarOpcao();
+        return opcao;
     }
 
-    public void cadastrarLivro(){
+    public Livro cadastrarLivro(){
         System.out.println("===== Cadastrar Livro =====");
 
         System.out.println("Digite o título do livro:");
@@ -44,6 +47,9 @@ public class BibliotecaView {
 
         System.out.println("Digite o ano de publicação do livro:");
         int anoPublicacao = scNum.nextInt();
+
+        var novoLivro = new Livro(nomeLivro, autorLivro, anoPublicacao);
+        return novoLivro;
     }
 
     public void listarLivros(){
@@ -61,14 +67,16 @@ public class BibliotecaView {
 
 //    ====================================================================================
 
-    public void menuUsuarios(){
+    public int menuUsuarios(){
         System.out.println("===== Gerenciar Usuários =====");
         System.out.println("1 - Cadastrar Usuário");
         System.out.println("2 - Listar Usuários");
         System.out.println("0 - Voltar ao Menu Principal");
+        int opcao = capturarOpcao();
+        return opcao;
     }
 
-    public void cadastrarUsuario(){
+    public Usuario cadastrarUsuario(){
         System.out.println("===== Cadastrar Usuário =====");
 
         System.out.println("Digite o nome do usuário:");
@@ -76,6 +84,9 @@ public class BibliotecaView {
 
         System.out.println("Digite o email do usuário:");
         String emailUsuario = scStr.nextLine();
+
+        Usuario novoUsuario = new Usuario(nomeUsuario, emailUsuario);
+        return novoUsuario;
     }
 
     public void listarUsuarios(){
@@ -96,7 +107,17 @@ public class BibliotecaView {
         System.out.println("3 - Listar Empréstimos");
         System.out.println("0 - Voltar ao Menu Principal");
 
-        return capturarOpcao();
+        int opcao = capturarOpcao();
+        return opcao;
+    }
+
+    public void mensagemSucesso(){
+        System.out.println("\n[OK] Operação realizada com sucesso!");
+    }
+
+    public void mensagemErro(){
+        System.err.println("\n[ERRO] Ocorreu um erro ao realizar a ação. "  );
+        System.out.print("Por favor, tente novamente.");
     }
 
 }
