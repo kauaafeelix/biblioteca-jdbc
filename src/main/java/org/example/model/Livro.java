@@ -22,6 +22,12 @@ public class Livro {
         this.disponivel = disponivel;
     }
 
+    public Livro(String titulo, String autor, int anoPublicacao) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anoPublicacao = anoPublicacao;
+    }
+
     public int getId() {
         return id;
     }
