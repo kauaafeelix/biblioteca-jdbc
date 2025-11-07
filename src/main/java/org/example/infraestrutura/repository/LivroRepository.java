@@ -17,7 +17,7 @@ public class LivroRepository {
                 INSERT INTO livros 
                 (titulo,
                 autor,
-                ano_publicacao,
+                ano,
                 disponivel) 
                 VALUES (?, ?, ?, true)
                 """;
@@ -53,7 +53,7 @@ public class LivroRepository {
                 int idLivro = rs.getInt("id");
                 String titulo = rs.getString("titulo");
                 String autor = rs.getString("autor");
-                int anoPublicacao = rs.getInt("ano_publicacao");
+                int anoPublicacao = rs.getInt("ano");
                 boolean disponivel = rs.getBoolean("disponivel");
                 Livro livro = new Livro(idLivro, titulo, autor, anoPublicacao, disponivel);
                 livros.add(livro);
