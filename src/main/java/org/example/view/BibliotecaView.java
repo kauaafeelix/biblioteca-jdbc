@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class BibliotecaView {
 
-    static Scanner scNum = new Scanner(System.in);
-    static Scanner scStr = new Scanner (System.in);
+    Scanner scNum = new Scanner(System.in);
+    Scanner scStr = new Scanner (System.in);
 
     public int mostrarMenu(){
         System.out.println("===== Biblioteca =====");
@@ -52,9 +52,8 @@ public class BibliotecaView {
         return novoLivro;
     }
 
-    public List listarLivros(){
+    public void listarLivros(List<Livro> livros){
         System.out.println("===== Listar Livros =====");
-        List<Livro> livros = new ArrayList<>();
         for (Livro livro : livros) {
             System.out.println("ID: " + livro.getId());
             System.out.println("Título: " + livro.getTitulo());
@@ -63,7 +62,6 @@ public class BibliotecaView {
             System.out.println("Disponível: " + livro.isDisponivel());
             System.out.println("---------------------------");
         }
-        return livros;
     }
 
 //    ====================================================================================
@@ -90,16 +88,14 @@ public class BibliotecaView {
         return novoUsuario;
     }
 
-    public List listarUsuarios(){
-        System.out.println("===== Listar Usuários =====");
-        List<Usuario> usuarios = new ArrayList<>();
+    public void listarUsuarios(List<Usuario> usuarios){
+        System.out.println("\n  ===== Listar Usuários =====");
         for (Usuario usuario : usuarios) {
             System.out.println("ID: " + usuario.getId());
             System.out.println("Nome: " + usuario.getNome());
             System.out.println("Email: " + usuario.getEmail());
             System.out.println("---------------------------");
         }
-        return usuarios;
     }
 
     public int menuEmprestimos(){
@@ -117,9 +113,18 @@ public class BibliotecaView {
         System.out.println("\n[OK] Operação realizada com sucesso!");
     }
 
-    public void mensagemErro(){
-        System.err.println("\n[ERRO] Ocorreu um erro ao realizar a ação. "  );
+    public void mensagemErroCadastro(String entidade){
+        System.err.println("\n[ERRO] Ocorreu um erro ao cadastrar um "+entidade+". "  );
         System.out.print("Por favor, tente novamente.");
+    }
+
+    public void mensagemErro(){
+        System.err.println("\n[ERRO] Ocorreu um erro na operação."  );
+        System.out.print("Por favor, tente novamente.");
+    }
+
+    public void mensagemListaVazia(String tipo){
+        System.out.println("\n[AVISO] Nenhum " + tipo + " cadastrado.");
     }
 
 }
