@@ -40,7 +40,7 @@ public class LivroRepository {
                 id,
                 titulo,
                 autor,
-                ano_publicacao,
+                ano,
                 disponivel 
                 FROM livros
                 """;
