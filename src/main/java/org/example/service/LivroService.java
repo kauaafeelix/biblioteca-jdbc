@@ -50,16 +50,17 @@ public class LivroService {
     }
 
     public void listarLivros() {
-        List<Usuario>usuarios = new ArrayList<>();
+        List<Livro>livros = new ArrayList<>();
         try {
             var livroRepository = new LivroRepository();
-            var livros = livroRepository.listarLivros();
-            bibliotecaView.listarLivros(livros);
+            livros = livroRepository.listarLivros();
         } catch (SQLException e) {
             bibliotecaView.mensagemErro();
             e.printStackTrace();
         }
-        if (usuarios.isEmpty()) {
+        if (!livros.isEmpty()) {
+            bibliotecaView.listarLivros(livros);
+        }else {
             bibliotecaView.mensagemListaVazia("livro");
         }
     }
