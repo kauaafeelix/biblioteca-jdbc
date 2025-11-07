@@ -13,7 +13,7 @@ public class BibliotecaView {
     Scanner scStr = new Scanner (System.in);
 
     public int mostrarMenu(){
-        System.out.println("===== Biblioteca =====");
+        System.out.println("\n===== Biblioteca =====");
         System.out.println("1 - Gerenciar Usuários");
         System.out.println("2 - Gerenciar Livros");
         System.out.println("3 - Gerenciar Empréstimos");
@@ -28,7 +28,7 @@ public class BibliotecaView {
     }
 
     public int menuLivros(){
-        System.out.println("===== Gerenciar Livros =====");
+        System.out.println("\n===== Gerenciar Livros =====");
         System.out.println("1 - Cadastrar Livro");
         System.out.println("2 - Listar Livros");
         System.out.println("0 - Voltar ao Menu Principal");
@@ -37,7 +37,7 @@ public class BibliotecaView {
     }
 
     public Livro cadastrarLivro(){
-        System.out.println("===== Cadastrar Livro =====");
+        System.out.println("\n===== Cadastrar Livro =====");
 
         System.out.println("Digite o título do livro:");
         String nomeLivro = scStr.nextLine();
@@ -53,7 +53,7 @@ public class BibliotecaView {
     }
 
     public void listarLivros(List<Livro> livros){
-        System.out.println("===== Listar Livros =====");
+        System.out.println("\n===== Listar Livros =====");
         for (Livro livro : livros) {
             System.out.println("ID: " + livro.getId());
             System.out.println("Título: " + livro.getTitulo());
@@ -67,7 +67,7 @@ public class BibliotecaView {
 //    ====================================================================================
 
     public int menuUsuarios(){
-        System.out.println("===== Gerenciar Usuários =====");
+        System.out.println("\n===== Gerenciar Usuários =====");
         System.out.println("1 - Cadastrar Usuário");
         System.out.println("2 - Listar Usuários");
         System.out.println("0 - Voltar ao Menu Principal");
@@ -76,7 +76,7 @@ public class BibliotecaView {
     }
 
     public Usuario cadastrarUsuario(){
-        System.out.println("===== Cadastrar Usuário =====");
+        System.out.println("\n===== Cadastrar Usuário =====");
 
         System.out.println("Digite o nome do usuário:");
         String nomeUsuario = scStr.nextLine();
@@ -99,7 +99,7 @@ public class BibliotecaView {
     }
 
     public int menuEmprestimos(){
-        System.out.println("===== Gerenciar Empréstimos =====");
+        System.out.println("\n===== Gerenciar Empréstimos =====");
         System.out.println("1 - Registrar Empréstimo");
         System.out.println("2 - Registrar Devolução");
         System.out.println("3 - Listar Empréstimos");
@@ -114,13 +114,13 @@ public class BibliotecaView {
     }
 
     public void mensagemErroCadastro(String entidade){
-        System.err.println("\n[ERRO] Ocorreu um erro ao cadastrar um "+entidade+". "  );
-        System.out.print("Por favor, tente novamente.");
+        System.err.print("\n[ERRO] Ocorreu um erro ao cadastrar um "+entidade+". "  );
+        System.out.println("Por favor, tente novamente.");
     }
 
     public void mensagemErro(){
-        System.err.println("\n[ERRO] Ocorreu um erro na operação."  );
-        System.out.print("Por favor, tente novamente.");
+        System.err.print("\n[ERRO] Ocorreu um erro na operação."  );
+        System.out.println("Por favor, tente novamente.");
     }
 
     public void mensagemListaVazia(String tipo){
