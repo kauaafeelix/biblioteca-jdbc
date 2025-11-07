@@ -4,25 +4,31 @@ import org.example.view.BibliotecaView;
 
 public class EmprestimoService {
     BibliotecaView bibliotecaView = new BibliotecaView();
-    int opcao = bibliotecaView.menuEmprestimos();
+    int opcao = 0;
 
     public void gerenciadorEmprestimos(){
-        switch (opcao) {
-            case 1 ->{
-                cadastrarEmprestimo();
-            }
-            case 2 ->{
-                listarEmprestimos();
-            }
-            case 3 ->{
-                registrarDevolucao();
-            }
-            case 4 ->{
-                bibliotecaView.mostrarMenu();
-            }
-            default -> System.out.println("Opção inválida. Tente novamente.");
+        do {
+            opcao = bibliotecaView.menuEmprestimos();
 
-        }
+            switch (opcao) {
+                case 1 ->{
+                    cadastrarEmprestimo();
+                }
+                case 2 ->{
+                    listarEmprestimos();
+                }
+                case 3 ->{
+                    registrarDevolucao();
+                }
+                case 4 ->{
+                    bibliotecaView.mostrarMenu();
+                }
+                default -> System.out.println("Opção inválida. Tente novamente.");
+            }
+
+        }while (opcao !=4);
+
+
     }
     public static void cadastrarEmprestimo() {
 
