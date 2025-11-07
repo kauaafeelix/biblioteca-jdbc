@@ -18,7 +18,7 @@ public class LivroService {
     public void gerenciadorLivros() {
 
         do {
-            opcao = bibliotecaView.mostrarMenu();
+            opcao = bibliotecaView.menuLivros();
 
             switch (opcao) {
                 case 1 -> {
