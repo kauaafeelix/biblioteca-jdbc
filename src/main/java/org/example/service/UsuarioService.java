@@ -5,6 +5,8 @@ import org.example.model.Usuario;
 import org.example.view.BibliotecaView;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioService {
 
@@ -12,21 +14,23 @@ public class UsuarioService {
     int opcao = 0;
 
     public void gerenciadorUsuarios() {
+        do {
+            opcao = bibliotecaView.menuUsuarios();
 
-        opcao = bibliotecaView.menuUsuarios();
+            switch (opcao){
+                case 1 -> {
+                    cadastrarUsuario();
+                }
+                case 2 -> {
+                    listarUsuarios();
+                }
+                case 3 -> {
+                    bibliotecaView.mostrarMenu();
+                }
+                default -> System.out.println("Opção inválida. Tente novamente.");
+            }
+        }while (opcao!= 3);
 
-        switch (opcao){
-            case 1 -> {
-                cadastrarUsuario();
-            }
-            case 2 -> {
-                listarUsuarios();
-            }
-            case 3 -> {
-                bibliotecaView.mostrarMenu();
-            }
-            default -> System.out.println("Opção inválida. Tente novamente.");
-        }
     }
 
     public void cadastrarUsuario() {
@@ -37,13 +41,25 @@ public class UsuarioService {
             usuarioRepository.inserirUsuario(usuario);
             bibliotecaView.mensagemSucesso();
         } catch (SQLException e) {
-            bibliotecaView.mensagemErro();
+            bibliotecaView.mensagemErroCadastro("usuário");
             e.printStackTrace();
         }
 
     }
 
     public void listarUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
+            try {
+                var usuarioRepository = new UsuarioRepository();
+                usuarios = usuarioRepository.listarUsuarios();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            if (!usuarios.isEmpty()) {
+                bibliotecaView.listarUsuarios(usuarios);
+            } else {
+                bibliotecaView.mensagemListaVazia("usuário");
+            }
+        }
 
     }
-}
