@@ -1,38 +1,49 @@
 package org.example.infraestrutura.repository;
 
+import com.mysql.cj.protocol.Resultset;
 import org.example.infraestrutura.Conexao;
 import org.example.model.Emprestimo;
 import org.example.service.EmprestimoService;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmprestimoRepository {
 
-    public void registrarEmprestimo(Emprestimo emprestimo) throws SQLException {
-
+    public int registrarEmprestimo(Emprestimo emprestimo) throws SQLException {
         String sql = """
-                INSERT INTO emprestimos (
-                id_livro,
-                id_usuario,
+            INSERT INTO emprestimos (
+                livro_id,
+                usuario_id,
                 data_emprestimo,
-                data_devolucao)
-                VALUES (?, ?, NOW(), null)
-                """;
+                data_devolucao
+            ) VALUES (?, ?, NOW(), null)
+            """;
 
         try (Connection conn = Conexao.conectar();
-             PreparedStatement ps = conn.prepareStatement(sql)){
+             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
             ps.setInt(1, emprestimo.getLivroId());
             ps.setInt(2, emprestimo.getUsuarioId());
-            ps.executeUpdate();
-        }
-    }
 
+            int rows = ps.executeUpdate();
+            if (rows == 0) {
+                return 0;
+            }
+
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) {
+                    int idGerado = rs.getInt(1);
+                    emprestimo.setId(idGerado);
+                    return idGerado;
+                }
+            }
+        }
+
+        return 0;
+    }
     public List<Emprestimo>listarEmprestimos() throws SQLException{
 
         String sql = """
