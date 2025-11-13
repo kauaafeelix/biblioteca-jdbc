@@ -24,7 +24,7 @@ public class UsuarioService {
                 case 2 -> {
                     listarUsuarios();
                 }
-                case 3 -> {
+                case 0 -> {
                     bibliotecaView.mostrarMenu();
                 }
                 default -> System.out.println("Opção inválida. Tente novamente.");

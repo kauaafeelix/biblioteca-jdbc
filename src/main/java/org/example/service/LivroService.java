@@ -27,7 +27,7 @@ public class LivroService {
                 case 2 -> {
                     listarLivros();
                 }
-                case 3 -> {
+                case 0 -> {
                     bibliotecaView.mostrarMenu();
                 }
                 default -> System.out.println("Opção inválida. Tente novamente.");
