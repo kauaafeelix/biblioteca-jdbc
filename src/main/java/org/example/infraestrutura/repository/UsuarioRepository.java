@@ -3,10 +3,7 @@ package org.example.infraestrutura.repository;
 import org.example.infraestrutura.Conexao;
 import org.example.model.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +41,7 @@ public class UsuarioRepository {
                 """;
 
         try(Connection conn = Conexao.conectar();
-            PreparedStatement ps = conn.prepareStatement(sql)){
+            PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
 
             ResultSet rs = ps.executeQuery();
 
