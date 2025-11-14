@@ -3,10 +3,7 @@ package org.example.infraestrutura.repository;
 import org.example.infraestrutura.Conexao;
 import org.example.model.Livro;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class LivroRepository {
                 """;
 
         try (Connection conn = Conexao.conectar();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, livro.getTitulo());
             ps.setString(2, livro.getAutor());
             ps.setInt(3, livro.getAnoPublicacao());
@@ -60,5 +57,32 @@ public class LivroRepository {
             }
         }
         return livros;
+    }
+
+    public void atualizaStatusFalse(int idLivro) throws SQLException {
+        String sql = """
+                UPDATE livros
+                SET disponivel = false
+                WHERE id = ?
+                """;
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idLivro);
+            ps.executeUpdate();
+        }
+    }
+    public void atualizaStatusTrue(int idLivro) throws SQLException {
+        String sql = """
+                UPDATE livros
+                SET disponivel = true
+                WHERE id = ?
+                """;
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idLivro);
+            ps.executeUpdate();
+        }
     }
 }
