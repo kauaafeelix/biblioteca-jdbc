@@ -33,7 +33,7 @@ public class LivroService {
                 default -> System.out.println("Opção inválida. Tente novamente.");
 
             }
-        }while (opcao != 3);
+        }while (opcao != 0);
     }
 
     public void cadastrarLivro() {
