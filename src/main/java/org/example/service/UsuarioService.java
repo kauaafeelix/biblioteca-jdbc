@@ -29,7 +29,7 @@ public class UsuarioService {
                 }
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }
-        }while (opcao!= 3);
+        }while (opcao!= 0);
 
     }
 
