@@ -1,10 +1,13 @@
 package org.example.view;
 
+import org.example.model.Emprestimo;
 import org.example.model.Livro;
 import org.example.model.Usuario;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class BibliotecaView {
@@ -107,6 +110,56 @@ public class BibliotecaView {
 
         int opcao = capturarOpcao();
         return opcao;
+    }
+
+    public int solicitarIdUsuario(){
+        System.out.print("Digite o ID do usuário: ");
+        int idUsuario = scNum.nextInt();
+        return idUsuario;
+    }
+
+    public int solicitarIdLivro(){
+        System.out.print("Digite o ID do livro: ");
+        int idLivro = scNum.nextInt();
+        return idLivro;
+    }
+
+    public void listarEmprestimos(Map<Integer, String> emprestimos){
+        for(Map.Entry<Integer, String> s:  emprestimos.entrySet()){
+            System.out.println(s.getValue());
+            System.out.println("|| ---------------------------------------------------");
+        }
+    }
+
+    public void consultarEmprestimos(Map<Integer, String> emprestimos){
+        System.out.println("\n|| ----- CONSULTAR EMPRÉSTIMOS ----- |");
+
+        if(emprestimos.isEmpty()){
+            System.out.println("\n|| [ERRO] -> Nenhum empréstimo encontrado!\n");
+        }else{
+
+            emprestimos.forEach((emprestimoId, emprestimo) -> {
+                System.out.println(emprestimo);
+                System.out.println("|| -------------------------------------------------");
+            });
+            System.out.println("");
+        }
+    }
+
+    public int solicitarIdEmprestimo() {
+        System.out.print("Digite o ID do empréstimo para registrar a devolução: ");
+        int id = scNum.nextInt();
+        return id;
+    }
+
+    public LocalDate solicitarDataDevolucao() {
+        System.out.println("Digite a data de devolução (AAAA-MM-DD): ");
+        LocalDate data = LocalDate.parse(scStr.nextLine());
+        return data;
+    }
+
+    public void mensagemDevolucaoSucesso(){
+        System.out.println("\n[OK] Devolução registrada com sucesso!");
     }
 
     public void mensagemSucesso(){
